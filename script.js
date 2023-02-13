@@ -37,30 +37,28 @@ function checkIfWon(user) {
 
 gameContainer.forEach(element => {
   element.addEventListener("click", () => {
-    if (user == 1 && !isgameover) {
-      document.getElementsByClassName("info")[0].innerText = "Turn of User 2";
-      user = 1 - user;
-      document.getElementById(element.id).innerText = "X";
-      addRowCol(parseInt(element.id), user1);
-      if (user1.length > 2) {
-        if (checkIfWon(user1)) {
-          isgameover = true;
+    if (document.getElementById(element.id).innerText == "") {
+      if (user == 1 && !isgameover) {
+        document.getElementsByClassName("info")[0].innerText = "Turn of User 2";
+        user = 1 - user;
+        document.getElementById(element.id).innerText = "X";
+        addRowCol(parseInt(element.id), user1);
+        if (user1.length > 2) {
+          if (checkIfWon(user1)) {
+            isgameover = true;
+          }
+        }
+      } else if (user == 0 && !isgameover) {
+        document.getElementsByClassName("info")[0].innerText = "Turn of User 1";
+        user = 1 - user;
+        document.getElementById(element.id).innerText = "0";
+        addRowCol(parseInt(element.id), user2);
+        if (user2.length > 2) {
+          if (checkIfWon(user2)) {
+            isgameover = true;
+          }
         }
       }
-    } else if (user == 0 && !isgameover) {
-      document.getElementsByClassName("info")[0].innerText = "Turn of User 1";
-      user = 1 - user;
-      document.getElementById(element.id).innerText = "0";
-      addRowCol(parseInt(element.id), user2);
-      if (user2.length > 2) {
-        if (checkIfWon(user2)) {
-          isgameover = true;
-        }
-      }
-    }
-    if (user1.length + user2.length == 9) {
-      document.getElementsByClassName("info")[0].innerText =
-        "No one won. Press reset to continue.";
     }
     if (isgameover) {
       document
@@ -71,6 +69,10 @@ gameContainer.forEach(element => {
 
       user1 = [];
       user2 = [];
+    }
+    if (user1.length + user2.length == 9) {
+      document.getElementsByClassName("info")[0].innerText =
+        "No one won. Press reset to continue.";
     }
   });
 });
