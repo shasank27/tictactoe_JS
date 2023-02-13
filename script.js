@@ -114,7 +114,7 @@ reset.addEventListener("click", () => {
   Array.from(boxtexts).forEach(element => {
     element.innerText = "";
   });
-
+  user = 1;
   isgameover = false;
   document.getElementsByClassName("info")[0].innerText = "Turn of User 1";
   document.querySelector(".imgbox").getElementsByTagName("img")[0].style.width =
