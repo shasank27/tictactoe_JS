@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css2?family=Zeyada&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  background-color: rgb(37, 9, 37);
+  color: white;
+  height: 65px;
+  font-size: 27px;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  font-family: "Roboto", sans-serif;
+}
+
+nav ul {
+  list-style-type: none;
+}
+
+.info {
+  font-size: 22px;
+}
+
+.gameInfo {
+  padding: 0 34px;
+  font-family: "Baloo Bhaina 2", cursive;
+}
+
+.gameInfo h1 {
+  font-size: 2.5rem;
+}
+
+.imgbox img {
+  width: 0;
+  transition: width 1s ease-in-out;
+}
+
+.container {
+  background-color: aliceblue;
+  min-height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cell {
+  border: 2px solid black;
+}
+
+.cell:hover {
+  background-color: rgb(217, 180, 252);
+}
+
+#reset {
+  margin: 0 23px;
+  padding: 1px 18px;
+  background: #f3e7f9;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: "Baloo Bhaina 2";
+  font-size: 15px;
+  font-weight: bolder;
+}
+
+.game {
+  height: 50vmin;
+  width: 50vmin;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  cursor: pointer;
+}
+
+.tick {
+  display: flex;
+  background-image: url(./assets/tick.png);
+  background-size: cover;
+  height: 75%;
+  width: 76%;
+  margin: 10px;
+}
+.cross {
+  display: flex;
+  background-image: url(./assets/cross.png);
+  background-size: cover;
+  height: 75%;
+  width: 75%;
+  margin: 10px;
+}
+
+#whoWon {
+  position: absolute;
+  top: 14vh;
+  right: 27vw;
+  font-size: 39px;
+  font-weight: bold;
+  color: #fff;
+  font-family: "Zeyada", cursive;
+}
+
+.b-t0 {
+  border-top: 0;
+}
+.b-r0 {
+  border-right: 0;
+}
+.b-l0 {
+  border-left: 0;
+}
+.b-b0 {
+  border-bottom: 0;
+}
