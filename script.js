@@ -37,26 +37,30 @@ function checkIfWon(user) {
 
 gameContainer.forEach(element => {
   element.addEventListener("click", () => {
-    if (user == 1) {
+    if (user == 1 && !isgameover) {
       document.getElementsByClassName("info")[0].innerText = "Turn of User 2";
       user = 1 - user;
-      document.getElementById(element.id).classList.add("tick");
+      document.getElementById(element.id).innerText = "X";
       addRowCol(parseInt(element.id), user1);
       if (user1.length > 2) {
         if (checkIfWon(user1)) {
           isgameover = true;
         }
       }
-    } else {
+    } else if (user == 0 && !isgameover) {
       document.getElementsByClassName("info")[0].innerText = "Turn of User 1";
       user = 1 - user;
-      document.getElementById(element.id).classList.add("cross");
+      document.getElementById(element.id).innerText = "0";
       addRowCol(parseInt(element.id), user2);
       if (user2.length > 2) {
         if (checkIfWon(user2)) {
           isgameover = true;
         }
       }
+    }
+    if (user1.length + user2.length == 9) {
+      document.getElementsByClassName("info")[0].innerText =
+        "No one won. Press reset to continue.";
     }
     if (isgameover) {
       document
@@ -108,8 +112,7 @@ function addRowCol(id, user) {
 reset.addEventListener("click", () => {
   let boxtexts = document.querySelectorAll(".cell");
   Array.from(boxtexts).forEach(element => {
-    element.classList.remove("cross");
-    element.classList.remove("tick");
+    element.innerText = "";
   });
 
   isgameover = false;

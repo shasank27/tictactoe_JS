@@ -48,6 +48,11 @@ nav ul {
 
 .cell {
   border: 2px solid black;
+  font-size: 8vh;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .cell:hover {
